@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2nl41noda315"]
+
+[ext_resource type="Material" uid="uid://dxm2gmvwrth1w" path="res://Green.tres" id="1_jkms5"]
+[ext_resource type="Material" uid="uid://ca5qboirdog0h" path="res://Blue.tres" id="2_f00q7"]
+[ext_resource type="Script" path="res://player.gd" id="3_p40gw"]
+[ext_resource type="Script" path="res://wall.gd" id="4_8kv1k"]
+[ext_resource type="PackedScene" uid="uid://cyx6up0w2dbi1" path="res://Brick.tscn" id="5_cqs1a"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5i6id"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_esj10"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(10.015, 0, 0, 0, 10.015, 0, 0, 0, 10.015, 0, 0, 0)
+material_override = ExtResource("1_jkms5")
+mesh = SubResource("PlaneMesh_5i6id")
+
+[node name="Player" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.778273, 0)
+material_override = ExtResource("2_f00q7")
+mesh = SubResource("BoxMesh_esj10")
+script = ExtResource("3_p40gw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.759657, 0.650324, 0, -0.650324, 0.759657, -1.27369, 9.44039, 14.5618)
+
+[node name="Wall" type="Node3D" parent="."]
+script = ExtResource("4_8kv1k")
+brick_scene = ExtResource("5_cqs1a")
