@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://y4nr1ngkbtcv"]
+
+[ext_resource type="Material" uid="uid://dxm2gmvwrth1w" path="res://Green.tres" id="1_c5y4d"]
+[ext_resource type="Script" path="res://tower.gd" id="2_7oof3"]
+[ext_resource type="PackedScene" uid="uid://cyx6up0w2dbi1" path="res://Brick.tscn" id="3_vjx4j"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qtswe"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(10.015, 0, 0, 0, 10.015, 0, 0, 0, 10.015, 0, 0, 0)
+material_override = ExtResource("1_c5y4d")
+mesh = SubResource("PlaneMesh_qtswe")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999432, -0.0235131, 0.0241318, 0.0107175, 0.900889, 0.433918, -0.0319428, -0.433413, 0.900629, -1.24566, 4.61192, 6.31705)
+
+[node name="Tower" type="Node3D" parent="."]
+script = ExtResource("2_7oof3")
+stack_Scene = ExtResource("3_vjx4j")
