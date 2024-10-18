@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2cnv7v7huh3k"]
+[gd_scene load_steps=16 format=3 uid="uid://d2cnv7v7huh3k"]
 
 [ext_resource type="Script" path="res://scenes/TPCamera.gd" id="1_1bql5"]
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="1_ljfv3"]
@@ -23,6 +23,8 @@ size = Vector3(0.1, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yo8sf"]
 size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gpy40"]
 
 [node name="root" type="Node3D"]
 
@@ -56,8 +58,10 @@ shape = SubResource("WorldBoundaryShape3D_307sh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("3_1hidi")
 speed = 10.0
+rot_speed = null
 bullet_scene = ExtResource("6_ngcvm")
 bullet_spawn = NodePath("bullet_spawn")
+fire_rate = null
 
 [node name="player" type="MeshInstance3D" parent="tank"]
 material_override = ExtResource("2_cp1av")
@@ -93,3 +97,7 @@ brick_scene = ExtResource("5_nw2f7")
 radius = 5.0
 elements = 22
 brick_size = 1.0
+
+[node name="Enemy" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.16815, 0.64658, 0)
+mesh = SubResource("BoxMesh_gpy40")
